@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --bg-color: hsl(0, 0%, 0%);
+  --input-color: hsl(271, 66%, 7%);
+  --button-color: hsl(271, 91%, 25%);
+  --th-color: hsl(273, 73%, 13%);
+  --outline-color: hsl(276, 31%, 42%);
+  --text-color: hsl(240, 9%, 89%);
+  --row-color: hsl(266, 66%, 7%);
+  --border-color: hsl(277, 31%, 42%);
+  --tbody-bg: hsl(273, 60%, 3%);
+  --tbody-text: #808080;
+  --remove-color: hsl(355, 91%, 66%);
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 3px solid var(--input-color);
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body * {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  margin-top: 7rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+header img {
+  width: clamp(14rem, 10.2rem + 5.4vw, 18rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.search {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search input {
+  background-color: var(--input-color);
+  width: 28rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.search button {
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: clamp(10rem, 5.3rem + 6.8vw, 15rem);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--button-color);
+  cursor: pointer;
+}
+
+.search button:hover {
+  color: var(--button-color);
+  background-color: white;
+}
+
+.search svg {
+  height: 1.6rem;
+}
+
+.search button:hover svg path {
+  fill: var(--button-color);
+}
+
+.search p {
+  font-size: clamp(1.2rem, 1rem + 0.3vw, 1.4rem);
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.table {
+  overflow: auto;
+  width: 100%;
+  border-radius: 1.2rem;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  outline: 1px solid var(--outline-color);
+  border-radius: 1.2rem;
+  table-layout: fixed;
+}
+
+table th {
+  background-color: var(--th-color);
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  padding-left: clamp(2rem, 0.12rem + 2.7vw, 4rem);
+  padding-right: clamp(2rem, 0.12rem + 2.7vw, 4rem);
+  text-align: center;
+  color: var(--text-color);
+  font-size: clamp(1.4rem, 1.15rem + 0.4vw, 1.7rem);
+}
+
+table th:first-child {
+  border-top-left-radius: 1.2rem;
+}
+
+table th:last-child {
+  border-top-right-radius: 1.2rem;
+}
+
+.hide {
+  display: none;
+}
+
+tr:nth-child(even) {
+  background-color: var(--row-color);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.noFav td {
+  padding-right: clamp(5rem, -4.45rem + 13.51vw, 15rem);
+  padding-left: clamp(5rem, -4.45rem + 13.51vw, 15rem);
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  text-align: center;
+  border-collapse: collapse;
+  background-color: var(--tbody-bg);
+}
+
+.noFavWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7rem;
+}
+
+.noFav img {
+  height: clamp(7rem, -0.56rem + 10.8vw, 15rem);
+}
+
+.noFav p {
+  font-family: "Roboto Mono";
+  font-weight: 700;
+  font-size: clamp(1.5rem, 0.08rem + 2vw, 3rem);
+  padding-top: 2rem;
+  color: var(--tbody-text);
+}
+
+td {
+  padding: 2.4rem 4rem;
+}
+
+.user {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  padding-right: clamp(7rem, -5.3rem + 17.55vw, 20rem);
+}
+
+.user img {
+  width: clamp(5rem, 4rem + 1.42vw, 6rem);
+  height: clamp(5rem, 4rem + 1.42vw, 6rem);
+  border-radius: 50%;
+}
+
+.user a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: clamp(1.4rem, 1.15rem + 0.4vw, 1.7rem);
+}
+
+.user p {
+  font-weight: 700;
+  font-size: clamp(1.4rem, 1.15rem + 0.4vw, 1.7rem);
+  line-height: 3.2rem;
+}
+
+.repositories,
+.followers {
+  font-weight: 700;
+  text-align: center;
+}
+
+.action {
+  padding: 0;
+  text-align: center;
+}
+
+.action button {
+  background: transparent;
+  color: var(--remove-color);
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 2rem;
+  cursor: pointer;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .search {
+    width: clamp(30rem, 18.6rem + 35.7vw, 40rem);
+  }
+
+  table {
+    margin-top: 10rem;
+  }
+}
